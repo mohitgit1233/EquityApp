@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Welcome to Valuation Calculator!
+        </h1>
+        Help : <br>
+
+        1 Crore - 10000000( 7 ZEROS ) <br>
+        1 lakh  - 100000( 5 ZEROS ) <br>
+        1 thousand - 1000 ( 3 ZEROS ) <br>
+
+    </header>
+    <main>
+        
+            <div class="label-input-wrapper">
+                <label for="Amount-Input"><h1> Enter Ask Amount</h1></label>
+                <input type="text" id="amount" required>
+        </div>
+            
+
+        <div class="label-input-wrapper">
+            <label for="Equity_Input"><h1> Enter equity percentage</h1></label>
+            <input type="text" id="equity" required>
+        </div>
+        <button onclick="calcValuation()">Submit</button>
+      
+        <br>
+        <div class="result">
+           <h1> Result :</h1> <h1 id="Valuation"></h1>
+        </div>
+    </main>
+</body>
+<script defer>
+    const amount = document.getElementById("amount");
+    const equity = document.getElementById("equity");
+    const disp = document.getElementById("Valuation")
+    let INRuppee = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+});
+    const calcValuation = () =>{
+        
+        
+        const amm = amount.value
+        const result = 100/equity.value
+
+        const valu = amm * result
+
+        disp.innerHTML = INRuppee.format(valu)
+        console.log(`The formated version of ${valu} is ${INRuppee.format(valu)}`);
+        
+    }
+    
+    
+    
+</script>
+</html>
